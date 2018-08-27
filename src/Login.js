@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
-export default class Login extends Component {
+class Login extends Component {
   constructor() {
     super();
     this.state = {
@@ -31,3 +32,11 @@ export default class Login extends Component {
     )
   }
 };
+
+const mapStateToProps = state => {
+return {
+  loggedInAs: state.loggedInAs,
+  isCreditCardHolder: state.isCreditCardHolder
+}}
+
+export default connect(mapStateToProps)(Login)
